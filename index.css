@@ -19,6 +19,10 @@ body {
     overflow: hidden;
 }
 
+.hidden {
+    display: none;
+  }
+  
 .time {
     font-size: 25px;
     display: flex;
