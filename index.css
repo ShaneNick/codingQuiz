@@ -41,13 +41,40 @@ body {
 .container {
   padding: 25px;
   width: 90vw;
-  height: 675px;
+  height: 700px;
   background-color: white;
   display: flex;
   border-radius: 20px;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.title{
+  font-size: 100px;
+  color: darkorange;
+  padding-bottom: 45px;
+}
+.Start-btn, .End-btn {
+  font-size: 20px;
+  padding: 10px 20px; 
+  border: 2px solid #000; 
+  background-color: #f1f1f1; 
+  cursor: pointer; 
+  text-transform: uppercase; 
+  transition: background-color 0.3s; 
+}
+
+.Start-btn:hover, .End-btn:hover {
+  background-color: #ddd; 
+}
+
 
 .questions-container {
   margin: 5px;
@@ -85,4 +112,100 @@ body {
 
 .answer-option {
   padding: 7px;
+}
+
+/* Media queries */
+@media only screen and (max-width: 1400px) {
+  .container {
+    width: 85vw;
+    height: 500px;
+  }
+
+  .time {
+    font-size: 20px;
+    position: relative;
+    right: 0;
+    top: 0;
+    text-align: right;
+  }
+  .score {
+    font-size: 20px;
+    position: relative;
+    left: 0;
+    top: 0;
+    text-align: left;
+  }
+
+  .title {
+    font-size: 60px;
+    padding-bottom: 30px;
+  }
+
+  .Start-btn,
+  .End-btn {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  #Question {
+    font-size: 30px;
+  }
+
+  .answer-box {
+    font-size: 2rem;
+    min-width: 10rem;
+    
+  }
+
+  .choice {
+    padding: 5px 15px;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 70vw;
+    height: 90vh;
+  }
+
+  .time {
+    font-size: 20px;
+    position: relative;
+    right: 0;
+    top: 0;
+    text-align: right;
+  }
+  .score {
+    font-size: 20px;
+    position: relative;
+    left: 0;
+    top: 0;
+    text-align: left;
+  }
+
+  .title {
+    font-size: 40px;
+    padding-bottom: 20px;
+  }
+
+  .Start-btn,
+  .End-btn {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  #Question {
+    font-size: 24px;
+  }
+
+  .answer-box {
+    font-size: 1.5rem;
+    min-width: 5rem;
+  }
+
+  .choice {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
 }

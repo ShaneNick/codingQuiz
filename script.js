@@ -5,6 +5,14 @@ document.addEventListener('DOMContentLoaded', function () {
   startBtn.addEventListener('click', function () {
     content.classList.remove('hidden');
   });
+
+const title = document.querySelector('.title');
+
+// Add event listener to Start button
+startBtn.addEventListener('click', function () {
+  // Toggle the hidden class on the title element
+  title.classList.toggle('hidden');
+});
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -89,6 +97,7 @@ $('.End-btn').click(function () {
   clearInterval(interval);
   countdownRunning = false;
 });
+
 
 
 
@@ -177,22 +186,65 @@ function displayQuestion() {
 document.querySelector(".Start-btn").addEventListener("click", () => {
   document.getElementById("content").classList.remove("hidden");
   displayQuestion();
+  document.getElementById("title").classList.add("hidden");
 });
 
 
 //saves highscore
+const highScoreForm = document.getElementById("highscore-form");
+document.getElementById("highscore-form").addEventListener("submit", saveHighScore);
+
+highScoreForm.addEventListener("submit", saveHighScore);
+highScoreForm.addEventListener("submit", displayHighScores);
+
 function saveHighScore(event) {
   event.preventDefault();
+  const username = document.getElementById("username").value;
+  const score = document.querySelector(".score-display").innerText;
+  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  highScores.push({ user: username, score: score });
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+}
 
-  const user = userName.value.trim();
-  const scoreObj = {
-    score: score,
-    user: user
-  };
+function displayHighScores() {
+  const highScoresList = document.getElementById("highscores-list");
+  highScoresList.innerHTML = ""; 
 
   let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-  highScores.push(scoreObj);
-  localStorage.setItem("highScores", JSON.stringify(highScores));
 
-  window.location.assign("/");
+  highScores.sort(function(a, b) {
+    return b.score - a.score;
+  });
+
+  // Create list items for each high score
+  highScores.forEach(function(scoreObj) {
+    const listItem = document.createElement("li");
+    if (scoreObj.user !== undefined) {
+      listItem.innerText = `${scoreObj.user}: ${scoreObj.score}`;
+      highScoresList.appendChild(listItem);
+    }
+  });
+  
+
+  // Show the highscores container
+  const highScoresContainer = document.querySelector(".highscores-container");
+  highScoresContainer.classList.remove("hidden");
+}
+
+function endQuiz() {
+  // Hide the question and answer elements
+  document.getElementById("Question").classList.add("hidden");
+  document.getElementById("Answers").classList.add("hidden");
+
+  // Check if quiz has started
+  if (currentQuestionIndex > 0) {
+    // Create and display a message
+    const finishedMessage = document.createElement("h2");
+    finishedMessage.innerText = "Quiz is Finished!";
+    finishedMessage.classList.add("quiz-finished");
+    document.querySelector(".questions-container").appendChild(finishedMessage);
+  }
+
+  // Display the highscores
+  displayHighScores();
 }

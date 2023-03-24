@@ -10,17 +10,20 @@
 </head>
 
 <body>
-    <!--Questions container-->
-    <section class="container">
-        <button class="Start-btn">Start Quiz</button>
-        <button class="End-btn">End Quiz</button>
-        <div id="content" class="hidden">
-            <!--Start Quiz Button-->
-            <section class="time">
-                <h4>Time Remaining: </h4>
-                <div class="timer"> 1:00</div>
-            </section>
-
+    <body>
+        <!--Questions container-->
+        <section class="container">
+            <h2 class="title">Coding Quiz</h2>
+            <div class="button-wrapper"> 
+                <button class="Start-btn">Start Quiz</button>
+                <button class="End-btn">End Quiz</button>
+            </div>
+            <div id="content" class="hidden">
+                <!--Start Quiz Button-->
+                <section class="time">
+                    <h4>Time Remaining: </h4>
+                    <div class="timer"> 1:00</div>
+                </section>
             <section class="score">
                 <h4>Score:</h4>
                 <div class="score-display">0/5</div>
@@ -51,6 +54,7 @@
                 </div>
             </section>
         </div>
+        <!--Highscore container-->
         <section class="highscores-container hidden">
             <h2>High Scores</h2>
             <form id="highscore-form">
