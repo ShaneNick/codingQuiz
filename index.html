@@ -14,45 +14,54 @@
     <section class="container">
         <button class="Start-btn">Start Quiz</button>
         <button class="End-btn">End Quiz</button>
-        <div id="content" class = "hidden">
-        <!--Start Quiz Button-->
-        <section class= "time">
-            <h4>Time Remaining: </h4>
-            <div class="timer"> 5:00</div>
-        </section>
+        <div id="content" class="hidden">
+            <!--Start Quiz Button-->
+            <section class="time">
+                <h4>Time Remaining: </h4>
+                <div class="timer"> 1:00</div>
+            </section>
 
-        <section class="score">
-            <h4>Score:</h4>
-            <div class="timer">0/10</div>
-        </section>
+            <section class="score">
+                <h4>Score:</h4>
+                <div class="score-display">0/5</div>
+            </section>
 
 
-        <section class="questions-container">
-            <div id="Question">Question:</div>
+            <section class="questions-container">
+                <div id="Question">Question:</div>
 
-            <!--Answers Box-->
-            <div id="Answers">
-                <div class="answer-box">
-                    <button class="choice" data-index="1">A</button>
-                    <p class="answer-option">Choice</p>
+                <!--Answers Box-->
+                <div id="Answers">
+                    <div class="answer-box">
+                        <button class="choice" data-index="1">A</button>
+                        <p class="answer-option">Choice</p>
+                    </div>
+                    <div class="answer-box">
+                        <button class="choice" data-index="2">B</button>
+                        <p class="answer-option">Choice</p>
+                    </div>
+                    <div class="answer-box">
+                        <button class="choice" data-index="3">C</button>
+                        <p class="answer-option">Choice</p>
+                    </div>
+                    <div class="answer-box">
+                        <button class="choice" data-index="4">D</button>
+                        <p class="answer-option">Choice</p>
+                    </div>
                 </div>
-                <div class="answer-box">
-                    <button class="choice" data-index="2">B</button>
-                    <p class="answer-option">Choice</p>
-                </div>
-                <div class="answer-box">
-                    <button class="choice" data-index="3">C</button>
-                    <p class="answer-option">Choice</p>
-                </div>
-                <div class="answer-box">
-                    <button class="choice" data-index="4">D</button>
-                    <p class="answer-option">Choice</p>
-                </div>
-            </div>
+            </section>
         </div>
+        <section class="highscores-container hidden">
+            <h2>High Scores</h2>
+            <form id="highscore-form">
+                <label for="username">Enter your name:</label>
+                <input type="text" id="username" name="username" required>
+                <input type="submit" id="saveScoreBtn" value="Save">
+            </form>
+            <ul id="highscores-list"></ul>
         </section>
-    </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
 
